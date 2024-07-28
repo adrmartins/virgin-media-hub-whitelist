@@ -1,0 +1,17 @@
+services:
+  main:
+    build: .
+    container_name: virgin-media-hub-whitelist
+    environment:
+      - NODE_ENV=production
+      - CLIENT_PASSWORD=123
+      - CLIENT_BASE_URL=http://192.168.0.1/rest/v1
+      - SYNC_INTERVAL=240
+    restart: on-failure
+
+    volumes:
+      - virgin-media-hub-whitelist:/usr/src/app/data
+
+
+volumes:
+  virgin-media-hub-whitelist:
